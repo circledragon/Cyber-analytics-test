@@ -8,7 +8,7 @@ conda create -n <environment name> python=3.7
 conda activate <environment name>
 pip install -r requirements.txt #or you can use pip3 instead depending on how your python is setup
 ```
-For part A, the code requires drivers for selenium to work. They need to be downloaded and placed into your *PATH*. See the this for more information and download links for the drivers:
+For part A, the code requires a web driver for selenium to work. They need to be downloaded and placed into your *PATH*. See the this for more information and download links for the various drivers (only need to get 1 driver):
 https://selenium-python.readthedocs.io/installation.html#downloading-python-bindings-for-selenium <br>
 This link explains how to find and/or change the *PATH* for various OS: https://www.java.com/en/download/help/path.xml
 <br>
