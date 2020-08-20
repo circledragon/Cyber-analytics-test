@@ -42,7 +42,7 @@ column_names = ["ts",
 data = pd.read_csv("http.log", sep = "\t", names = column_names,error_bad_lines = False)
 result = pd.DataFrame(columns = ["IP address", "injection tag", "bad method", "average actions per second"])
 
-# list of http methods from https://tools.ietf.org/html/rfc2616#section-9
+# list of common http methods
 http_methods = [
 "GET",
 "HEAD",

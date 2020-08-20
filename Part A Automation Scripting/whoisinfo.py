@@ -5,7 +5,9 @@ from extract_info import extract_information
 
 
 URL = 'https://securelist.com/apt-phantomlance/96772/'
+# choose driver to use for selenium
 driver = webdriver.Chrome()
+# specify the column names needed to store domain and whois data
 column_names = ['Number',
                 'domain_name',
                 'registrar',
@@ -25,12 +27,12 @@ column_names = ['Number',
                 'state',
                 'zipcode',
                 'country']
-
 result_df = pd.DataFrame(columns = column_names)
 
 print("Extracting information from : {}".format(URL))
 (hash_result, domain_result, ip_result) = extract_information(URL, driver)
-#print(domain_result)
+
+# save result for ip address and hashes
 with open('ip_address.txt', 'w') as f:
     for address in ip_result:
         f.write("{}\n".format(address))
@@ -38,6 +40,7 @@ with open("hash.txt", 'w') as f:
     for hashes in hash_result:
         f.write("{}\n".format(hashes))
 
+# get whois data for each domain and append to result DataFrame
 i = 1
 for domain in domain_result:
     print('Finding whois of : {}'.format(domain))
@@ -52,5 +55,5 @@ for domain in domain_result:
         pass
 
 result_df = result_df[column_names]
-
+# save the domain and whois data
 result_df.to_csv("whois_information.csv", index = False)
